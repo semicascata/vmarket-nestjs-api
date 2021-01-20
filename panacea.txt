@@ -1,0 +1,36 @@
+# PACKAGES:
+-----------------------------------------------
+@ Dotenv: 
+    $ npm i --save dotenv
+    $ npm i --save-dev @types/dotenv
+-----------------------------------------------
+@ Argon2: 
+    $ npm i --save argon2
+-----------------------------------------------
+@ Class-Validator/Transformer: 
+    $ npm i --save class-validator class-transformer
+-----------------------------------------------
+@ Security: 
+    $ npm i --save helmet express-rate-limit xss-clean hpp
+    $ npm i --save-dev @types/helmet @types/express-rate-limit @types/hpp
+-----------------------------------------------
+@ Jwt: 
+    $ npm i --save @nestjs/jwt jsonwebtoken
+-----------------------------------------------
+@ Passport: 
+    $ npm i --save @nestjs/passport @nestjs/jwt passport passport-jwt passport-local
+    $ npm i --save-dev @types/passport-jwt @types/passport-local
+-----------------------------------------------
+@ PostgreSQL/TypeORM: 
+    $ npm install --save @nestjs/typeorm pg typeorm
+-----------------------------------------------
+@ Nestjs Fastify:
+    $ npm i --save @nestjs/platform-fastify
+-----------------------------------------------
+# ALL:
+npm i --save dotenv argon2 class-validator class-transformer helmet express-rate-limit xss-clean hpp passport
+npm i --save @nestjs/jwt jsonwebtoken @nestjs/passport passport-jwt @nestjs/typeorm pg typeorm passport-local 
+npm i --save @nestjs/platform-fastify
+npm i -D @types/passport-local @types/hpp @types/passport-jwt 
+npm i -D @types/dotenv @types/helmet @types/express-rate-limit @types/argon2
+-----------------------------------------------
