@@ -10,7 +10,7 @@ import * as helmet from 'helmet';
 import * as xss from 'xss-clean';
 import * as hpp from 'hpp';
 import * as rateLimit from 'express-rate-limit';
-import { port } from './config/env/env-config';
+import { port } from './config/env/env.config';
 
 async function bootstrap() {
   try {
@@ -39,7 +39,7 @@ async function bootstrap() {
 
     await app.listen(port);
 
-    logger.log(`server running on: http://localhost:${port}/api/v1`);
+    logger.log(`>_ server running on: http://localhost:${port}/api/v1`);
   } catch (err) {
     this.logger.error(`error starting server: ${err.message}`);
     throw new InternalServerErrorException(

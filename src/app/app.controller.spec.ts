@@ -16,8 +16,8 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "hello message"', () => {
-      expect(appController.getHello()).toBe({
-        message: "wazup! veloso's market api",
+      expect(appController.getHello()).toStrictEqual({
+        message: "veloso's market api",
         codeBy: 'r. duarte',
       });
     });
