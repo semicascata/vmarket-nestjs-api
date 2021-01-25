@@ -35,7 +35,7 @@ export class TypeOrmService implements TypeOrmOptionsFactory {
       createConnection(options);
       this.logger.log('>_ database connected');
     } catch (err) {
-      this.logger.error(`database error - ${err.message}`);
+      this.logger.error(`>_ database error - ${err.message}`);
       throw new InternalServerErrorException(`database error - ${err.message}`);
     }
     return options;

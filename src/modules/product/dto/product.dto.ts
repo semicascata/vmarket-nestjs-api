@@ -1,9 +1,9 @@
 import { IsEnum, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
 
 export enum Type {
-  vegetables = 'vegetables', // vegetais
-  fruits = 'fruits', // frutas
-  inputs = 'inputs', // insumos
+  vegetable = 'vegetable', // vegetais
+  fruit = 'fruit', // frutas
+  input = 'input', // insumos
 }
 
 export class NewProductDto {

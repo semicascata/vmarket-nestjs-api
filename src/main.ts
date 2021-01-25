@@ -5,7 +5,7 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app/app.module';
-import * as bodyParser from 'body-parser';
+// import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import * as xss from 'xss-clean';
 import * as hpp from 'hpp';
@@ -22,8 +22,8 @@ async function bootstrap() {
 
     app.enableCors();
 
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
+    // app.use(bodyParser.json());
+    // app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(helmet());
     app.use(xss());

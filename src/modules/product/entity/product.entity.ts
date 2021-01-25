@@ -23,7 +23,7 @@ export class Product {
   })
   type: Type;
 
-  @Column({ nullable: true })
+  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
   value: number;
 
   @Column({ nullable: true })
