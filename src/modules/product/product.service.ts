@@ -6,6 +6,7 @@ import {
 import { ProductRepository } from './product.repository';
 import { Product } from './entity/product.entity';
 import { NewProductDto } from './dto/product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
 
 @Injectable()
 export class ProductService {
@@ -36,8 +37,45 @@ export class ProductService {
   }
 
   // update product
+  async updateProduct(
+    updateProductDto: UpdateProductDto,
+    id: string,
+  ): Promise<Product> {
+    try {
+      await this.productRepository.update(id, updateProductDto);
+      const productUpdated = await this.productRepository.findOne(id);
+
+      this.logger.verbose(`product "${productUpdated.name}" updated`);
+      return productUpdated;
+    } catch (err) {
+      this.logger.error(
+        `failed to update product by Id ${id} - ${err.message}`,
+      );
+      throw new InternalServerErrorException(
+        `failed to update product by Id ${id} - ${err.message}`,
+      );
+    }
+  }
 
   // delete product
+  async deleteProduct(id: string): Promise<any> {
+    const product = await this.productRepository.findOne(id);
+
+    try {
+      await this.productRepository.remove(product);
+      this.logger.verbose(`product "${product.name}" deleted`);
+      return {
+        productDeleted: product,
+      };
+    } catch (err) {
+      this.logger.error(
+        `failed to delete product by id ${id} - ${err.message}`,
+      );
+      throw new InternalServerErrorException(
+        `failed to delete product by id ${id} - ${err.message}`,
+      );
+    }
+  }
 
   // get all products
   async fetchProducts(): Promise<Product[]> {

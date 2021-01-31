@@ -81,7 +81,7 @@ export class ProductRepository extends Repository<Product> {
 
     try {
       const productsLowAmount = await query
-        .where({ amount: LessThanOrEqual(50) })
+        .where({ amount: LessThanOrEqual(100) })
         .getMany();
 
       if (productsLowAmount.length === 0) {
