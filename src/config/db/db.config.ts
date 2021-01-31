@@ -7,6 +7,7 @@ import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { createConnection } from 'typeorm';
 import { Product } from '../../modules/product/entity/product.entity';
 import { Provider } from '../../modules/provider/entity/provider.entity';
+import { Order } from '../../modules/order/entity/order.entity';
 import {
   tpType,
   tpHost,
@@ -28,7 +29,7 @@ export class TypeOrmService implements TypeOrmOptionsFactory {
       username: tpUsername,
       password: tpPassword,
       database: tpDatabase,
-      entities: [Product, Provider],
+      entities: [Product, Provider, Order],
       synchronize: true,
     } as TypeOrmModuleOptions;
 
