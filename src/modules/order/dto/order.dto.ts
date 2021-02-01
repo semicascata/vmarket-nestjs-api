@@ -7,20 +7,25 @@ export enum Status {
   received = 'received',
 }
 
+export interface ProductsOrder {
+  productId: number;
+  howMany: number;
+}
+
 export class NewOrderDto {
   @IsNotEmpty()
   @IsArray()
-  products: number[];
+  products: ProductsOrder[];
 
-  @IsNumber()
-  @IsNotEmpty()
-  total: number;
+  // @IsNumber()
+  // @IsNotEmpty()
+  // total: number;
 
-  @IsNotEmpty()
-  @IsEnum(Status)
-  status: Status;
+  // @IsNotEmpty()
+  // @IsEnum(Status)
+  // status: Status;
 
-  @IsDate()
-  @IsNotEmpty()
-  deliveryTime: Date;
+  // @IsDate()
+  // @IsNotEmpty()
+  // deliveryTime: Date;
 }
