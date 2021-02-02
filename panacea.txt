@@ -27,10 +27,13 @@
 @ Nestjs Fastify:
     $ npm i --save @nestjs/platform-fastify
 -----------------------------------------------
+@ Moment:
+    $ npm i --save moment
+-----------------------------------------------
 # ALL:
 npm i --save dotenv argon2 class-validator class-transformer helmet express-rate-limit xss-clean hpp passport
 npm i --save @nestjs/jwt jsonwebtoken @nestjs/passport passport-jwt @nestjs/typeorm pg typeorm passport-local 
-npm i --save @nestjs/platform-fastify
+npm i --save @nestjs/platform-fastify moment
 npm i -D @types/passport-local @types/hpp @types/passport-jwt 
 npm i -D @types/dotenv @types/helmet @types/express-rate-limit @types/argon2
 -----------------------------------------------

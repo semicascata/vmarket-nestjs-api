@@ -1,3 +1,4 @@
+import { ProductsOrder } from './../dto/order.dto';
 import { Status } from '../dto/order.dto';
 import {
   Column,
@@ -11,8 +12,8 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int', { array: true, default: {} })
-  products: number[];
+  @Column('text', { array: true, default: {} })
+  products: ProductsOrder[];
 
   @Column()
   total: number;

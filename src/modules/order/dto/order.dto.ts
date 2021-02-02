@@ -21,9 +21,9 @@ export class NewOrderDto {
   // @IsNotEmpty()
   // total: number;
 
-  // @IsNotEmpty()
-  // @IsEnum(Status)
-  // status: Status;
+  @IsNotEmpty()
+  @IsEnum(Status)
+  status: Status;
 
   // @IsDate()
   // @IsNotEmpty()
