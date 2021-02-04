@@ -1,4 +1,4 @@
-import { IsArray, IsDate, IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsArray, IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
 
 export enum Status {
   open = 'open',
@@ -17,15 +17,15 @@ export class NewOrderDto {
   @IsArray()
   products: ProductsOrder[];
 
-  // @IsNumber()
-  // @IsNotEmpty()
-  // total: number;
+  @IsNumber()
+  @IsNotEmpty()
+  total: number;
 
   @IsNotEmpty()
   @IsEnum(Status)
   status: Status;
 
+  @IsNotEmpty()
   // @IsDate()
-  // @IsNotEmpty()
-  // deliveryTime: Date;
+  deliveryTime: string;
 }

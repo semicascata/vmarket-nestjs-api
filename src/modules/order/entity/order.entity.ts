@@ -15,7 +15,7 @@ export class Order {
   @Column('text', { array: true, default: {} })
   products: ProductsOrder[];
 
-  @Column()
+  @Column('float')
   total: number;
 
   @Column('enum', {
@@ -25,8 +25,8 @@ export class Order {
   })
   status: Status;
 
-  @Column({ type: 'timestamp' })
-  deliveryTime: Date;
+  @Column()
+  deliveryTime: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

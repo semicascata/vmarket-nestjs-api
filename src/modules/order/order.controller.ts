@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { Order } from './entity/order.entity';
 import { OrderService } from './order.service';
 import { NewOrderDto } from './dto/order.dto';
+import { UpdateOrderDto } from './dto/update-order.dto';
 
 @Controller('api/v1/orders')
 export class OrderController {
@@ -20,5 +29,23 @@ export class OrderController {
   @Post('new')
   async newOrder(@Body() newOrderDto: NewOrderDto): Promise<any> {
     return this.orderService.newOrder(newOrderDto);
+  }
+
+  @Delete(':id')
+  async deleteOrder(@Param('id') id: number): Promise<any> {
+    return this.orderService.deleteOrder(id);
+  }
+
+  @Put('submit/:id')
+  async submitOrder(@Param('id') id: number): Promise<any> {
+    return this.orderService.submitOrder(id);
+  }
+
+  @Put('update/:id')
+  async updateOrder(
+    @Param('id') id: number,
+    @Body() updateOrderDto: UpdateOrderDto,
+  ): Promise<any> {
+    return this.orderService.updateOrder(id, updateOrderDto);
   }
 }
