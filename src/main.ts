@@ -10,7 +10,8 @@ import * as helmet from 'helmet';
 import * as xss from 'xss-clean';
 import * as hpp from 'hpp';
 import * as rateLimit from 'express-rate-limit';
-import { port } from './config/env/env.config';
+import { port, nodeEnv } from './config/env/env.config';
+import { LoggingInterceptor } from './common/interceptors/custom-logger.interceptor';
 
 async function bootstrap() {
   try {
@@ -21,14 +22,10 @@ async function bootstrap() {
     const logger = new Logger('Bootstrap');
 
     app.enableCors();
-
-    // app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-
     app.use(helmet());
     app.use(xss());
     app.use(hpp());
-
     app.use(
       rateLimit({
         windowMs: 10 * 60 * 1000,
@@ -36,6 +33,10 @@ async function bootstrap() {
         message: 'too many requests!',
       }),
     );
+
+    if (nodeEnv === 'development') {
+      app.useGlobalInterceptors(new LoggingInterceptor());
+    }
 
     await app.listen(port);
 
